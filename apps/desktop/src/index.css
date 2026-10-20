@@ -1,0 +1,8 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root{ color-scheme: light; } .dark{ color-scheme: dark; }
+body{ font-family: Inter, system-ui, sans-serif; }
+:focus-visible{ outline:2px solid #39FF14; outline-offset:2px; }
+@media (prefers-reduced-motion: reduce){ *{ animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+.skeleton{ position:relative; overflow:hidden; }
+.skeleton::after{ content:''; position:absolute; inset:0; transform:translateX(-100%); background:linear-gradient(90deg,transparent,rgba(57,255,20,.08),transparent); animation:shimmer 1.4s infinite; }
+@keyframes shimmer{ 100%{ transform:translateX(100%);} }

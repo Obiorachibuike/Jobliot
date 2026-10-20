@@ -1,0 +1,14 @@
+node_modules/
+dist/
+release/
+.venv/
+__pycache__/
+*.pyc
+.env
+.careerpilot/
+*.db
+*.db-wal
+*.db-shm
+.api_token
+.ai_key
+careerpilot-dev.db

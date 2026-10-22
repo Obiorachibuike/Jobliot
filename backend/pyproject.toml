@@ -1,0 +1,37 @@
+[project]
+name = "careerpilot-backend"
+version = "0.1.0"
+description = "CareerPilot AI - local backend API for the CareerPilot AI desktop application"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.110,<1.0",
+    "uvicorn[standard]>=0.27",
+    "sqlalchemy>=2.0,<3",
+    "alembic>=1.13",
+    "pydantic>=2.5,<3",
+    "pydantic-settings>=2.1",
+    "httpx>=0.26",
+    "python-docx>=1.1",
+    "reportlab>=4.0,<5",
+    "jinja2>=3.1",
+    "apscheduler>=3.10,<4",
+    "beautifulsoup4>=4.12",
+    "cryptography>=41",
+    "python-multipart>=0.0.7",
+]
+
+[project.optional-dependencies]
+keyring = ["keyring>=24"]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.23",
+    "httpx>=0.26",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

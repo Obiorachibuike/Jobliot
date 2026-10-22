@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * CareerPilot AI theme tokens.
+ * Colors are defined as RGB triplets so Tailwind opacity
+ * modifiers (e.g. bg-surface/50) work.  The `dark` class on
+ * <html> selects the dark palette; the default is light.
+ *
+ * Signature accent: neon green #39FF14 (dark) / deep green
+ * #15803D (light, for accessible contrast on white).
+ * No purple/violet hues are used anywhere.
+ */
+
+:root {
+  /* light theme */
+  --bg-main: 247 249 246;
+  --bg-sidebar: 255 255 255;
+  --bg-surface: 255 255 255;
+  --bg-elevated: 243 246 242;
+  --bg-secondary: 238 242 237;
+  --text-primary: 23 32 25;
+  --text-secondary: 95 109 98;
+  --text-muted: 120 135 124;
+  --accent: 21 128 61;
+  --accent-hover: 22 101 52;
+  --input-bg: 255 255 255;
+  --border: 220 228 220;
+  --success: 21 128 61;
+  --warning: 161 98 7;
+  --error: 185 28 28;
+  --focus-ring: 21 128 61;
+}
+
+html.dark {
+  /* dark theme */
+  --bg-main: 8 11 9;
+  --bg-sidebar: 13 18 15;
+  --bg-surface: 18 25 20;
+  --bg-elevated: 25 34 27;
+  --bg-secondary: 29 42 36;
+  --text-primary: 245 247 245;
+  --text-secondary: 160 173 163;
+  --text-muted: 120 135 124;
+  --accent: 57 255 20;
+  --accent-hover: 101 255 69;
+  --input-bg: 16 22 16;
+  --border: 41 53 43;
+  --success: 74 222 128;
+  --warning: 250 204 21;
+  --error: 248 113 113;
+  --focus-ring: 57 255 20;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: rgb(var(--bg-main));
+  color: rgb(var(--text-primary));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--focus-ring));
+  outline-offset: 2px;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(120, 135, 124, 0.4);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dragging {
+  opacity: 0.5;
+}
+
+.document-preview {
+  background: #ffffff;
+  color: #172019;
+}

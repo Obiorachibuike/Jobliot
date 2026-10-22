@@ -1,14 +1,27 @@
-node_modules/
-dist/
-release/
-.venv/
-__pycache__/
-*.pyc
-.env
-.careerpilot/
+# Runtime / generated data
+.runtime-data/
 *.db
 *.db-wal
 *.db-shm
-.api_token
-.ai_key
-careerpilot-dev.db
+backups/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+venv/
+.venv/
+
+# Node
+node_modules/
+dist/
+release/
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+*.log

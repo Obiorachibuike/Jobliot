@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+careerpilot.db
+careerpilot.db-wal
+careerpilot.db-shm
+secrets.json
+secret.key
+api_token
+uploads/
+documents/
+backups/

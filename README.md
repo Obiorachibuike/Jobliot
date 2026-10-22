@@ -1,29 +1,85 @@
 # CareerPilot AI
-**Your Career. Your Strategy. Your Next Opportunity.**
 
-A privacy-conscious, local-first desktop career agent: guided onboarding → verified career profile → job discovery → explainable fit scoring → strategist/drafter/reviewer document pipeline → interview coaching → application tracking. Brand: neon green `#39FF14` on midnight black (dark) and deep green on clean white (light). No purple anywhere.
+A **local-first, privacy-respecting AI career agent** for desktop.
+CareerPilot helps you discover jobs, tailor application documents with
+a multi-agent AI system, prepare for interviews, and track your
+applications — while keeping your career data on your own machine.
+
+![Stack](https://img.shields.io/badge/stack-Electron%20%2B%20React%20%2B%20FastAPI-39FF14)
+![Privacy](https://img.shields.io/badge/data-local--first-39FF14)
 
 ## Quick start
+
+### Prerequisites
+- Python 3.11+ and Node.js 20+
+- (Optional) [Ollama](https://ollama.com) for local AI models
+
+### 1. Start the backend
+
 ```bash
-# 1) Backend
-python3 -m venv .venv && .venv/bin/pip install -r backend/requirements.txt
-.venv/bin/python backend/run.py            # http://127.0.0.1:8765  (API docs: /api/docs)
-# 2) Desktop app
-cd apps/desktop && npm install && npm run electron:dev
-# Browser-only dev: npm run dev, then paste ~/.careerpilot/.api_token in Settings → General
-# One-command: ./scripts/dev.sh
+cd backend
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -e .
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8787
 ```
 
-## Tests
+### 2. Start the frontend (development)
+
 ```bash
-.venv/bin/python -m pytest backend/tests -q     # 13 backend tests
-cd apps/desktop && npm test && npm run build    # 3 frontend tests + production build
+cd apps/desktop
+npm install
+npm run dev        # opens http://localhost:5173 (proxies /api → :8787)
 ```
 
-## Features
-11-step onboarding with CV import (PDF/DOCX/TXT, approve-before-save) · verified career knowledge base with provenance statuses · live job sources (Remotive/Greenhouse/Lever public APIs) + SSRF-safe URL import + manual entry · explainable structured matching · Application Studio with separate Strategist/Drafter/Independent Reviewer/Revision stages and quality gates · 8 CV templates · PDF/DOCX/TXT/LaTeX exports (validated) · mock Interview Coach · Kanban/table/calendar tracker with reminders · data-driven Insights · Ollama + OpenAI-compatible providers with offline built-in fallback · backup/restore/export/delete · light/dark/system themes.
+### 3. Run the desktop app (Electron)
 
-Data: `~/.careerpilot/careerpilot.db` (SQLite). Packaging: see `DEPLOYMENT.md`. Architecture/security/providers/sources: `docs/`.
+```bash
+cd apps/desktop
+npm run electron   # spawns the backend and opens the desktop window
+```
 
-## Honest limitations
-Live job APIs need internet and were code-verified + gracefully error-handled; egress-restricted sandboxes can't reach them. LinkedIn/Indeed are not scraped (ToS) — paste those descriptions manually. Scheduled searches need the app open. Packaged builds spawn system Python (PyInstaller freeze is a documented next step). Reviewer checks are evidence-based heuristics — always read documents yourself before approving. CareerPilot never applies on your behalf and never fabricates qualifications.
+The app also runs standalone in a browser (preview mode); Electron-only
+features degrade gracefully.
+
+## What it does
+
+| Area | What works out of the box |
+|------|---------------------------|
+| **Onboarding** | 11-step guided profile setup with honest "unknown" states |
+| **Career Profile** | Verified knowledge base: experience, education, skills, projects, credentials, preferences, writing style |
+| **Job Discovery** | Manual entry, URL import (SSRF-safe), Greenhouse & Lever public boards |
+| **Suitability Matching** | Structured, explainable per-dimension analysis — never a black-box score |
+| **Application Studio** | 4-agent pipeline (Strategist → Drafter → Reviewer → Reviser) with quality gates |
+| **Documents** | Master CV + tailored versions, 8 templates, PDF/DOCX/TXT/LaTeX export |
+| **Interview Coach** | Job-specific questions, structured self-review, scored feedback |
+| **Tracker** | Kanban pipeline, reminders, follow-ups, analytics |
+| **Insights** | Trends computed from your real data only |
+| **AI Providers** | Ollama (local) + OpenAI-compatible; **works fully offline** with the local engine |
+
+## Honest capabilities
+
+- **No AI provider configured?** The deterministic local engine
+  implements all four agents. Drafts are template-based and
+  evidence-grounded, not as fluent as LLM drafts, but fully functional.
+- **Nothing is fabricated.** Facts come only from your verified
+  profile. Unverified claims are flagged, never silently added.
+- **Nothing is auto-submitted.** You review and approve every
+  document; applications are submitted by you on the employer's site.
+- **Matching is explainable.** Every score lists the dimensions,
+  weights, and evidence behind it.
+
+See [docs/capabilities.md](docs/capabilities.md) for the full
+what-works / what-needs-configuration breakdown.
+
+## Documentation
+
+- [Getting started](docs/getting-started.md)
+- [Architecture](docs/architecture.md)
+- [Honest capabilities](docs/capabilities.md)
+- [Product rules](docs/product-rules.md)
+- [Security model](docs/security.md)
+
+## License
+
+Proprietary. All rights reserved.

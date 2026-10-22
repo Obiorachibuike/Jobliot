@@ -1,71 +1,45 @@
 {
-  "name": "careerpilot-ai",
-  "version": "1.0.0",
-  "description": "CareerPilot AI \u2014 Your Career. Your Strategy. Your Next Opportunity.",
-  "main": "electron/main.js",
+  "name": "careerpilot-desktop",
+  "version": "0.1.0",
+  "description": "CareerPilot AI - local-first AI career agent desktop application",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "electron:dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron .\"",
-    "package": "vite build && electron-builder"
+    "test:watch": "vitest",
+    "electron": "electron electron/main.cjs",
+    "electron:dev": "concurrently -k \"npm run dev\" \"wait-on http://localhost:5173 && electron electron/main.cjs\""
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "lucide-react": "^0.460.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "lucide-react": "^0.462.0"
+    "react-router-dom": "^6.28.0",
+    "recharts": "^2.13.0",
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.4",
-    "vite": "^5.4.11",
-    "typescript": "^5.6.3",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.15",
-    "postcss": "^8.4.49",
+    "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
-    "electron": "^33.2.1",
-    "electron-builder": "^25.1.8",
     "concurrently": "^9.1.0",
-    "wait-on": "^8.0.1",
-    "vitest": "^2.1.5",
-    "@testing-library/react": "^16.0.1",
-    "jsdom": "^25.0.1"
-  },
-  "build": {
-    "appId": "ai.careerpilot.desktop",
-    "productName": "CareerPilot AI",
-    "files": [
-      "dist/**",
-      "electron/**",
-      "package.json"
-    ],
-    "directories": {
-      "output": "release"
-    },
-    "win": {
-      "target": "nsis"
-    },
-    "mac": {
-      "target": "dmg"
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        ".deb"
-      ]
-    },
-    "extraResources": [
-      {
-        "from": "../../backend",
-        "to": "backend",
-        "filter": [
-          "**/*",
-          "!**/__pycache__/**",
-          "!tests/**"
-        ]
-      }
-    ]
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "jsdom": "^25.0.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8",
+    "wait-on": "^8.0.1"
   }
 }

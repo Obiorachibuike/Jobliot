@@ -22,8 +22,8 @@ import {
   tasksApi,
   profileApi,
 } from "../services/backend";
-import { Card, CardHeader, Badge, EmptyState, Spinner } from "../components/ui";
-import { cx } from "../components/ui";
+import { Card, CardHeader, Badge, EmptyState, Spinner } from "../components/ui/index";
+import { cx } from "../components/ui/index";
 import { useEffect } from "react";
 import { useToast } from "../components/ui/Toast";
 import { matchCategoryMeta, scoreToCategory } from "../theme/match";

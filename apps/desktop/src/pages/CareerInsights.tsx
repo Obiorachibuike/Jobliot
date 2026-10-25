@@ -16,7 +16,7 @@ import {
   CardHeader,
   EmptyState,
   Spinner,
-} from "../components/ui";
+} from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
 import {
   BarChart,

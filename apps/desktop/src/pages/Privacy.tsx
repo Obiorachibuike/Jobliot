@@ -15,7 +15,7 @@ import {
   CardHeader,
   ConfirmDialog,
   Spinner,
-} from "../components/ui";
+} from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
 
 export default function PrivacyPage() {

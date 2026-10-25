@@ -36,9 +36,9 @@ import {
   Select,
   Spinner,
   Tabs,
-} from "../components/ui";
+} from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
-import { cx } from "../components/ui";
+import { cx } from "../components/ui/index";
 
 type Stage = "strategy" | "draft" | "review" | "revision";
 

@@ -25,10 +25,10 @@ import {
   CardHeader,
   EmptyState,
   Spinner,
-} from "../components/ui";
+} from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
 import { matchCategoryMeta } from "../theme/match";
-import { cx } from "../components/ui";
+import { cx } from "../components/ui/index";
 
 const dimensionStatusIcon = (status: string) => {
   switch (status) {

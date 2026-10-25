@@ -4,10 +4,10 @@ import { Check, Monitor, Sun, Moon } from "lucide-react";
 import { useApi, useAsync } from "../hooks/useApi";
 import { settingsApi } from "../services/backend";
 import type { AppSettings } from "../types/api";
-import { Button, Card, CardHeader, Input, Select, Spinner } from "../components/ui";
+import { Button, Card, CardHeader, Input, Select, Spinner } from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
 import { useAppStore, applyThemeToDocument } from "../stores/app";
-import { cx } from "../components/ui";
+import { cx } from "../components/ui/index";
 
 export default function SettingsPage() {
   const settings = useApi(() => settingsApi.get(), []);

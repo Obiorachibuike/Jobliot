@@ -11,7 +11,7 @@ import {
   Modal,
   Spinner,
   Textarea,
-} from "../components/ui";
+} from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
 
 export default function MasterCV() {

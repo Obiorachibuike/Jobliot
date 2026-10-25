@@ -23,9 +23,9 @@ import {
   Modal,
   Select,
   Spinner,
-} from "../components/ui";
+} from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
-import { cx } from "../components/ui";
+import { cx } from "../components/ui/index";
 
 export default function AiProvidersPage() {
   const providers = useApi(() => aiApi.providers(), []);

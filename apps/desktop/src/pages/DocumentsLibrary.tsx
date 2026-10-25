@@ -13,9 +13,9 @@ import {
   Modal,
   Spinner,
   Tabs,
-} from "../components/ui";
+} from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
-import { cx } from "../components/ui";
+import { cx } from "../components/ui/index";
 
 const statusTone: Record<string, "success" | "warning" | "accent" | "neutral"> = {
   draft: "neutral",

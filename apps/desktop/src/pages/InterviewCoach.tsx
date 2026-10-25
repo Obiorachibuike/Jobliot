@@ -25,7 +25,7 @@ import {
   Select,
   Spinner,
   Textarea,
-} from "../components/ui";
+} from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
 
 function scoreTone(score: number): string {

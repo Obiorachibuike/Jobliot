@@ -50,10 +50,10 @@ import {
   Spinner,
   Tabs,
   Textarea,
-} from "../components/ui";
+} from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
 import { verificationMeta } from "../theme/match";
-import { cx } from "../components/ui";
+import { cx } from "../components/ui/index";
 
 export default function CareerProfile() {
   const profile = useApi(() => profileApi.get(), []);

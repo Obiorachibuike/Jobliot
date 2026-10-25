@@ -25,11 +25,11 @@ import {
   Select,
   Spinner,
   Textarea,
-} from "../components/ui";
+} from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
 import { applicationStatusMeta } from "../theme/match";
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, CartesianGrid } from "recharts";
-import { cx } from "../components/ui";
+import { cx } from "../components/ui/index";
 
 const COLUMNS: ApplicationStatus[] = [
   "saved",

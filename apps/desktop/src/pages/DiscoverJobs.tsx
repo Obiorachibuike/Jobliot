@@ -24,10 +24,10 @@ import {
   Select,
   Spinner,
   Textarea,
-} from "../components/ui";
+} from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
 import { matchCategoryMeta, scoreToCategory } from "../theme/match";
-import { cx } from "../components/ui";
+import { cx } from "../components/ui/index";
 
 const WORKPLACE_TYPES = ["remote", "hybrid", "onsite"];
 const EMPLOYMENT_TYPES = ["full-time", "contract", "part-time", "internship", "freelance"];

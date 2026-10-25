@@ -18,9 +18,9 @@ import {
 } from "lucide-react";
 import { api } from "../services/api";
 import type { OnboardingState } from "../types/api";
-import { Button, Card, CardHeader, Input, Textarea } from "../components/ui";
+import { Button, Card, CardHeader, Input, Textarea } from "../components/ui/index";
 import { useToast } from "../components/ui/Toast";
-import { cx } from "../components/ui";
+import { cx } from "../components/ui/index";
 
 const OBJECTIVES = [
   "Find a full-time job",
